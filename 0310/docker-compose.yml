@@ -6,23 +6,23 @@ services:
   jupyter-ds:
     image: jupyterenv_ds
     build: 
-      context: ./project-ds/
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./project-ds/Dockerfile
     container_name: jupyterenv_ds
     restart: always
     ports:
-     - "8890:8888"
+     - "8890:8890"
     volumes:
      - ./project-ds:/app/project-ds
 
   jupyter-engineer:
     image: jupyterenv_eng
     build: 
-      context: ./project-engineer/
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./project-engineer/Dockerfile
     container_name: jupyterenv_eng
     restart: always
     ports:
-     - "8899:8888"
+     - "8899:8899"
     volumes:
      - ./project-engineer:/app/project-engineer
