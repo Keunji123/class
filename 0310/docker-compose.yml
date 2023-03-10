@@ -1,0 +1,28 @@
+# docker-compose.yml
+
+version: "3.9"
+services:
+
+  jupyter-ds:
+    image: jupyterenv_ds
+    build: 
+      context: ./project-ds/
+      dockerfile: Dockerfile
+    container_name: jupyterenv_ds
+    restart: always
+    ports:
+     - "8890:8888"
+    volumes:
+     - ./project-ds:/app/project-ds
+
+  jupyter-engineer:
+    image: jupyterenv_eng
+    build: 
+      context: ./project-engineer/
+      dockerfile: Dockerfile
+    container_name: jupyterenv_eng
+    restart: always
+    ports:
+     - "8899:8888"
+    volumes:
+     - ./project-engineer:/app/project-engineer
