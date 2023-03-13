@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  mlflow-docker:
+    container_name: mlflow-docker
+    image: mlflow-docker
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5070:5070"
+    volumes:
+      - .:/app/mlflow-docker
+    entrypoint: mlflow server -h 0.0.0.0 -p 5050
